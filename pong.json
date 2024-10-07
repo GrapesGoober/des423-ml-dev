@@ -13,5 +13,21 @@
         "metadata": {
             "position": [610, 180]
         }
+    },
+    {
+        "key": null,
+        "location": "src.wall.Wall",
+        "metadata": {
+            "size": [640, 10],
+            "position": [320, -5]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.wall.Wall",
+        "metadata": {
+            "size": [640, 10],
+            "position": [320, 365]
+        }
     }
 ]
