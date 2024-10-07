@@ -12,3 +12,8 @@ class Wall(GameObject):
 
     def on_create(self, world: World) -> None:
         world.space.add(self.body, self.shape)
+
+class ResetWall(Wall):
+    def __init__(self, size: tuple[int, int], position: tuple[int, int]) -> None:
+        super().__init__(size, position)
+        self.shape.collision_type = id(ResetWall)

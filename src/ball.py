@@ -4,6 +4,7 @@ import pymunk
 from src.lib import GameObject, Sprite, World
 from src.lib import Frame
 from src.paddle import Paddle
+from src.wall import ResetWall
 
 RADIUS = 5
 COLOR = (255, 255, 255)
@@ -35,6 +36,8 @@ class Ball(GameObject):
     def on_collide(self, arb: pymunk.Arbiter, space, _):
         _, other = arb.shapes
         if other.collision_type == id(Paddle):
+            self.reset()
+        if other.collision_type == id(ResetWall):
             self.reset()
         return True
         
