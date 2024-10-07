@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "key": null,
+        "location": "src.paddle.PlayerPaddle",
+        "metadata": {
+            "position": [20, 50],
+            "y_cap": [25, 335]
+        }
+    }
+]

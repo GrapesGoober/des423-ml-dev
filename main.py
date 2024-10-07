@@ -1,6 +1,8 @@
 import pygame
-from lib import World
-from constants import WIDTH, HEIGHT, FPS
+from src.lib import World
+
+WIDTH, HEIGHT = 640, 360
+FPS = 60
 
 if __name__ == "__main__":
 
@@ -8,7 +10,7 @@ if __name__ == "__main__":
     pygame.init()
     clock = pygame.time.Clock()
     screen: pygame.surface.Surface = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("basic game template")
+    pygame.display.set_caption("PONG")
 
     world = World()
     with open("pong.json") as f: world.load_from_file(f)
