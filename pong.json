@@ -1,1 +1,41 @@
-[]
+[
+    {
+        "key": null,
+        "location": "src.paddle.PlayerPaddle",
+        "metadata": {
+            "position": [20, 50],
+            "y_cap": [25, 335]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.ball.Ball",
+        "metadata": {
+            "position": [610, 180]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.wall.Wall",
+        "metadata": {
+            "size": [640, 10],
+            "position": [320, -5]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.wall.Wall",
+        "metadata": {
+            "size": [640, 10],
+            "position": [320, 365]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.wall.ResetWall",
+        "metadata": {
+            "size": [10, 360],
+            "position": [-5, 180]
+        }
+    }
+]
