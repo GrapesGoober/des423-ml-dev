@@ -12,6 +12,7 @@ class Paddle(GameObject):
         self.body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
         self.shape = pymunk.Poly.create_box(self.body, SIZE)
         self.shape.elasticity = 1
+        self.shape.collision_type = id(Paddle)
         x, y = position
         self.body.position = pymunk.Vec2d(x, y)
         self.y_cap = y_cap
