@@ -1,6 +1,15 @@
 [
     {
         "key": null,
+        "location": "src.data_collector.DataCollector",
+        "metadata": {
+            "filename": "test_data.csv",
+            "ball_key": "ball",
+            "paddle_key": "paddle"
+        }
+    },
+    {
+        "key": "paddle",
         "location": "src.paddle.PlayerPaddle",
         "metadata": {
             "position": [20, 50],
@@ -8,7 +17,7 @@
         }
     },
     {
-        "key": null,
+        "key": "ball",
         "location": "src.ball.Ball",
         "metadata": {
             "position": [610, 180]
