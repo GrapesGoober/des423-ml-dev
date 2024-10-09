@@ -66,10 +66,9 @@ class AiPaddle(Paddle):
         _, paddle_y = self.body.position
 
         prediction = self.model.predict([[ball_x, ball_y, ball_vx, ball_vy, paddle_y]])
-
         v_vector = pymunk.Vec2d(0, SPEED * frame.dt)
         if prediction == 'up':      self.body.position -= v_vector
-        if prediction == 'down':    self.body.position += v_vector
+        elif prediction == 'down':  self.body.position += v_vector
         
         super().on_update(world, frame)
 
