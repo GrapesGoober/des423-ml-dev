@@ -40,4 +40,38 @@ class PlayerPaddle(Paddle):
         return super().on_update(world, frame)
 
 
+
+
+class AiPaddle(Paddle):
+    def __init__(self, position: tuple[int, int], y_cap: tuple[int, int], ball_key: str) -> None:
+        from pickle import load
+        from src.ball import Ball
+
+        super().__init__(position, y_cap)
+        
+        self.ball_key = ball_key
+        self.ball: Ball = None
+        self.paddle: Paddle = None
+        with open("src\\model.pkl", "rb") as f:
+            self.model = load(f)
+        
+    def on_create(self, world: World) -> None:
+        super().on_create(world)
+        self.ball = world.global_states[self.ball_key]
+    
+    def on_update(self, world: World, frame: Frame) -> None:
+        
+        ball_x, ball_y = self.ball.body.position
+        ball_vx, ball_vy = self.ball.body.velocity
+        _, paddle_y = self.body.position
+
+        prediction = self.model.predict([[ball_x, ball_y, ball_vx, ball_vy, paddle_y]])
+
+        v_vector = pymunk.Vec2d(0, SPEED * frame.dt)
+        if prediction == 'up':      self.body.position -= v_vector
+        if prediction == 'down':    self.body.position += v_vector
+        
+        super().on_update(world, frame)
+
+        
         

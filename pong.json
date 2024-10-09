@@ -1,19 +1,11 @@
 [
     {
-        "key": null,
-        "location": "src.data_collector.DataCollector",
-        "metadata": {
-            "filename": "test_data.csv",
-            "ball_key": "ball",
-            "paddle_key": "paddle"
-        }
-    },
-    {
         "key": "paddle",
-        "location": "src.paddle.PlayerPaddle",
+        "location": "src.paddle.AiPaddle",
         "metadata": {
             "position": [20, 50],
-            "y_cap": [25, 335]
+            "y_cap": [25, 335],
+            "ball_key": "ball"
         }
     },
     {
