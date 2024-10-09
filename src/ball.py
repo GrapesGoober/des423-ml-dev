@@ -10,6 +10,7 @@ RADIUS = 5
 COLOR = (255, 255, 255)
 SPEED = 600
 ANGLE_RANGE = 45
+COL_ANGLE_RANGE = 10
 MASS = 1
 
 class Ball(GameObject):
@@ -33,10 +34,17 @@ class Ball(GameObject):
         handler = world.space.add_wildcard_collision_handler(id(Ball))
         handler.post_solve = self.on_collide
 
+    def on_update(self, world: World, frame: Frame) -> None:
+        for event in frame.events:
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                self.reset()
+
     def on_collide(self, arb: pymunk.Arbiter, space, _):
         _, other = arb.shapes
         if other.collision_type == id(Paddle):
-            self.reset()
+            angle = random.randrange(-COL_ANGLE_RANGE, COL_ANGLE_RANGE)
+            self.body.velocity = self.body.velocity.rotated_degrees(angle)
+            return True
         if other.collision_type == id(ResetWall):
             self.reset()
         return True
