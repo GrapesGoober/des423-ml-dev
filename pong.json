@@ -20,7 +20,7 @@
         "key": "ball",
         "location": "src.ball.Ball",
         "metadata": {
-            "position": [610, 180]
+            "position": [30, 180]
         }
     },
     {
@@ -37,6 +37,14 @@
         "metadata": {
             "size": [640, 10],
             "position": [320, 365]
+        }
+    },
+    {
+        "key": null,
+        "location": "src.wall.Wall",
+        "metadata": {
+            "size": [10, 360],
+            "position": [645, 180]
         }
     },
     {

@@ -2,7 +2,6 @@ import random
 import pygame
 import pymunk
 from src.lib import GameObject, Sprite, World
-from src.lib import Frame
 from src.paddle import Paddle
 from src.wall import ResetWall
 
@@ -45,6 +44,6 @@ class Ball(GameObject):
         x, y = self.init_position
         self.body.position = pymunk.Vec2d(x, y)
         angle = random.randrange(-ANGLE_RANGE, ANGLE_RANGE)
-        self.body.velocity = pymunk.Vec2d(-SPEED, 0).rotated_degrees(angle)
+        self.body.velocity = pymunk.Vec2d(SPEED, 0).rotated_degrees(angle)
 
 
