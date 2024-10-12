@@ -12,13 +12,14 @@ ANGLE_RANGE = 45
 MASS = 1
 
 class Ball(GameObject):
-    def __init__(self, position: tuple[int, int]) -> None:
+    def __init__(self, position: tuple[int, int], random_y: int) -> None:
         self.body = pymunk.Body()
         self.shape = pymunk.Circle(self.body, RADIUS)
         self.shape.elasticity = 1
         self.shape.collision_type = id(Ball)
         self.shape.density = MASS / self.shape.area
         self.init_position = position
+        self.random_y = random_y
 
         self.sprite = Sprite()
         self.sprite.src_image = pygame.Surface((RADIUS*2, RADIUS*2), flags=pygame.SRCALPHA)
@@ -42,6 +43,7 @@ class Ball(GameObject):
         
     def reset(self) -> None:
         x, y = self.init_position
+        y += random.randrange( -self.random_y, self.random_y)
         self.body.position = pymunk.Vec2d(x, y)
         angle = random.randrange(-ANGLE_RANGE, ANGLE_RANGE)
         self.body.velocity = pymunk.Vec2d(SPEED, 0).rotated_degrees(angle)

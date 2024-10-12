@@ -20,7 +20,8 @@
         "key": "ball",
         "location": "src.ball.Ball",
         "metadata": {
-            "position": [30, 180]
+            "position": [60, 180],
+            "random_y": 175
         }
     },
     {
